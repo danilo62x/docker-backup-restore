@@ -54,43 +54,6 @@ This command will:
 - Recreate volumes and restore their data.
 - Execute the `run_containers.sh` script to recreate the containers. Any existing containers with conflicting names will be removed automatically before recreation.
 
-## Example
-
-### Backup Example
-
-\```bash
-# Run backup process
-./docker_backup.sh backup
-
-# Example output:
-# Fazendo backup das imagens Docker...
-# Salvando imagem nginx:latest em ./docker_backup/images/nginx_latest.tar
-# Fazendo backup dos containers...
-# Exportando container my_nginx
-# Fazendo backup dos volumes...
-# Salvando volume nginx_data
-# Gerando arquivo com os comandos para recriar os containers...
-# Arquivo de execução gerado: ./docker_backup/run_containers.sh
-# Operação concluída.
-\```
-
-### Restore Example
-
-\```bash
-# Run restore process on the destination machine
-./docker_backup.sh restore
-
-# Example output:
-# Restaurando imagens Docker...
-# Carregando imagem a partir de ./docker_backup/images/nginx_latest.tar
-# Restaurando volumes...
-# Criando volume nginx_data
-# Restaurando dados para o volume nginx_data
-# Executando arquivo de configuração para recriar os containers...
-# Executando: docker run -d --name my_nginx -p 8080:80 -v nginx_data:/usr/share/nginx/html nginx:latest
-# Operação concluída.
-\```
-
 ## How It Works
 
 1. **Backup Process:**
